@@ -7,16 +7,17 @@ Permite inventariar switches, planejar comandos de configuração e aplicar nova
 
 ## Estrutura do Repositório
 
-| Arquivo/Pasta            | Descrição                                              |
-|--------------------------|--------------------------------------------------------|
+| Arquivo/Pasta            | Descrição                                            |
+|--------------------------|------------------------------------------------------|
 | 1-Levantamento.py        | Coleta inventário: CDP, trunks, port-channels        |
 | 2-Planejamento.py        | Analisa e gera comandos para criar VLAN              |
 | 3-Configuracao.py        | Aplica comandos em switches selecionados             |
-| devices.csv              | Inventário de switches                                |
+| 4-Rollback.py            | Remove VLANs em switches selecionados (rollback).    |
+| devices.csv              | Inventário de switches                               |
 | outputs/                 | Saída dos Excel e arquivos de comando                |
-| README.md                | Documentação do projeto                               |
-| utils/                   | Pasta com scripts utilitários                         |
-| utils/parsing.py         | Funções de parsing compartilhadas                     |
+| README.md                | Documentação do projeto                              |
+| utils/                   | Pasta com scripts utilitários                        |
+| utils/parsing.py         | Funções de parsing compartilhadas                    |
 
 ---
 
@@ -84,6 +85,18 @@ python 3-Configuracao.py
 - Permite selecionar quais switches serão configurados.  
 - Mostra **preview dos comandos** antes da aplicação.  
 - Cria logs de execução em `outputs/`.
+
+---
+
+### 4. Rollback
+python 4-Rollback.py
+
+
+Permite escolher o switch pelo menu.
+
+Remove a VLAN selecionada apenas das interfaces que possuem a VLAN e ignorando interfaces críticas (axis-, mgmt, loopback).
+
+Salva log em outputs/rollback_logs/.
 
 ---
 
