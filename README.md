@@ -94,7 +94,7 @@ python 4-Rollback.py
 
 Permite escolher o switch pelo menu.
 
-Remove a VLAN selecionada apenas das interfaces que possuem a VLAN e ignorando interfaces críticas (axis-, mgmt, loopback).
+Remove a VLAN selecionada apenas das interfaces que possuem a VLAN e ignorando interfaces críticas ( mgmt, loopback).
 
 Salva log em outputs/rollback_logs/.
 
